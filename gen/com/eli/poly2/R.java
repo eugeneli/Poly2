@@ -33,25 +33,70 @@ public final class R {
         public static final int list_item_selector=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f090003;
-        public static final int container=0x7f090000;
-        public static final int mainMenuList=0x7f090001;
-        public static final int menuItem=0x7f090002;
+        public static final int action_settings=0x7f09000a;
+        public static final int itemDescription=0x7f090005;
+        public static final int itemImage=0x7f090003;
+        public static final int itemTitle=0x7f090004;
+        public static final int layout_root=0x7f090006;
+        public static final int menuList=0x7f090002;
+        public static final int pager_header=0x7f090001;
+        public static final int progress_bar=0x7f090008;
+        public static final int relativeLayout1=0x7f090007;
+        public static final int viewPager=0x7f090000;
+        public static final int web_engine=0x7f090009;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int fragment_main=0x7f030001;
-        public static final int menulist_row=0x7f030002;
+        public static final int activity_directions=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int mainmenulist_row=0x7f030002;
+        public static final int menulist_row=0x7f030003;
+        public static final int webdatalist=0x7f030004;
+        public static final int webview=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f080000;
     }
     public static final class string {
+        public static final int CAPS=0x7f060019;
+        public static final int CAPSDescrip=0x7f06001a;
+        public static final int CAPSNum=0x7f06001f;
+        public static final int about=0x7f060013;
+        public static final int aboutDescription=0x7f060014;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        /**  Emergency Numbers 
+         */
+        public static final int campusSecurity=0x7f060015;
+        public static final int campusSecurityDescrip=0x7f060016;
+        public static final int campusSecurityNum=0x7f06001d;
+        public static final int campusmap=0x7f06000d;
+        public static final int campusmapDescription=0x7f06000e;
+        public static final int directions=0x7f06000b;
+        public static final int directionsDescription=0x7f06000c;
+        /**  Home 
+         */
+        public static final int emergency=0x7f060005;
+        public static final int emergencyDescription=0x7f060006;
+        public static final int mobileUnit=0x7f06001b;
+        public static final int mobileUnitDescrip=0x7f06001c;
+        public static final int mobileUnitNum=0x7f060020;
+        public static final int news=0x7f060007;
+        public static final int newsDescription=0x7f060008;
+        /**   News 
+         */
+        public static final int noNews=0x7f060021;
+        public static final int press=0x7f060009;
+        public static final int pressDescription=0x7f06000a;
+        public static final int searchClasses=0x7f060011;
+        public static final int searchClassesDescription=0x7f060012;
+        public static final int searchDirectory=0x7f06000f;
+        public static final int searchDirectoryDescription=0x7f060010;
         public static final int title_section1=0x7f060002;
         public static final int title_section2=0x7f060003;
         public static final int title_section3=0x7f060004;
+        public static final int wellnessExchange=0x7f060017;
+        public static final int wellnessExchangeDescrip=0x7f060018;
+        public static final int wellnessExchangeNum=0x7f06001e;
     }
     public static final class style {
         /** 

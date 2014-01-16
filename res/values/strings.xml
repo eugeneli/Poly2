@@ -3,8 +3,43 @@
 
     <string name="app_name">Poly2</string>
     <string name="action_settings">Settings</string>
-    <string name="title_section1">Section 1</string>
+    <string name="title_section1">Home</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-
+    
+    <!-- Home -->
+    <string name="emergency">Emergency</string>
+    <string name="emergencyDescription">Emergency phone numbers</string>
+    <string name="news">News</string>
+    <string name="newsDescription">Stay up to date with the latest Poly news</string>
+    <string name="press">Press Releases</string>
+    <string name="pressDescription">The latest NYU-Poly press releases</string>
+    <string name="directions">Directions</string>
+    <string name="directionsDescription">Directions to the university</string>
+    <string name="campusmap">Campus Map</string>
+    <string name="campusmapDescription">A map of Metrotech with NYU-Poly buildings marked</string>
+    <string name="searchDirectory">Search Directory</string>
+    <string name="searchDirectoryDescription">Search the staff directory</string>
+    <string name="searchClasses">Search Classes</string>
+    <string name="searchClassesDescription">Search and set notifications for open classes</string>
+    <string name="about">About this app</string>
+    <string name="aboutDescription"></string>
+    
+    <!-- Emergency Numbers -->
+    <string name="campusSecurity">Campus Security</string>
+    <string name="campusSecurityDescrip">In the event of an emergency, always contact Campus Security</string>
+    <string name="wellnessExchange">Wellness Exchange</string>
+    <string name="wellnessExchangeDescrip">The Wellness Exchange is students\' key to accessing NYU\'s extensive health and mental health resources</string>
+    <string name="CAPS">CAPS</string>
+    <string name="CAPSDescrip">NYU-Poly\'s Counseling and Psychological Services center offers a variety of services to help students achieve their maximum potential</string>
+	<string name="mobileUnit">Request a Mobile Unit</string>
+	<string name="mobileUnitDescrip">Mobile crisis teams serve any person in New York City who is experiencing, or is at risk of, a psychological crisis</string>
+	
+	<string name="campusSecurityNum">tel:17182603537</string>
+	<string name="wellnessExchangeNum">tel:12124439999</string>
+	<string name="CAPSNum">tel:17182603456</string>
+	<string name="mobileUnitNum">tel:18005433638</string>
+	
+	<!--  News -->
+	<string name="noNews">No news items found</string>
 </resources>

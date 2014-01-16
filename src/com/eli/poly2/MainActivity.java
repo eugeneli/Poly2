@@ -1,81 +1,67 @@
 package com.eli.poly2;
 
-import android.annotation.TargetApi;
-import android.app.ActionBar;
+import java.util.ArrayList;
+
 import android.os.Bundle;
+import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
-import android.view.Gravity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity implements
-		ActionBar.OnNavigationListener {
-
-	/**
-	 * The serialization (saved instance state) Bundle key representing the
-	 * current dropdown position.
-	 */
-	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-
+public class MainActivity extends Activity
+{
+	private ListView mainMenuList;
+	private ArrayList<MainMenuStruct> menuItems = new ArrayList<MainMenuStruct>();
+	private MainMenuListAdapter menuListAdapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		// Set up the action bar to show a dropdown list.
-		final ActionBar actionBar = getActionBar();
-		actionBar.setDisplayShowTitleEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-		// Set up the dropdown list navigation in the action bar.
-		actionBar.setListNavigationCallbacks(
-		// Specify a SpinnerAdapter to populate the dropdown list.
-				new ArrayAdapter<String>(getActionBarThemedContextCompat(),
-						android.R.layout.simple_list_item_1,
-						android.R.id.text1, new String[] {
-								getString(R.string.title_section1),
-								getString(R.string.title_section2),
-								getString(R.string.title_section3), }), this);
-	}
-
-	/**
-	 * Backward-compatible version of {@link ActionBar#getThemedContext()} that
-	 * simply returns the {@link android.app.Activity} if
-	 * <code>getThemedContext</code> is unavailable.
-	 */
-	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-	private Context getActionBarThemedContextCompat() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-			return getActionBar().getThemedContext();
-		} else {
-			return this;
-		}
-	}
-
-	@Override
-	public void onRestoreInstanceState(Bundle savedInstanceState) {
-		// Restore the previously serialized current dropdown position.
-		if (savedInstanceState.containsKey(STATE_SELECTED_NAVIGATION_ITEM)) {
-			getActionBar().setSelectedNavigationItem(
-					savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
-		}
-	}
-
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		// Serialize the current dropdown position.
-		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
-				.getSelectedNavigationIndex());
+		
+		mainMenuList = (ListView) findViewById(R.id.menuList);
+		
+		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.emergency, R.string.emergencyDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.news, R.string.newsDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.press, R.string.pressDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.directions, R.string.directionsDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.campusmap, R.string.campusmapDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.searchDirectory, R.string.searchDirectoryDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.searchClasses, R.string.searchClassesDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.about, R.string.aboutDescription));
+		menuListAdapter = new MainMenuListAdapter(this, R.layout.mainmenulist_row, menuItems);
+		mainMenuList.setAdapter(menuListAdapter);
+		
+		mainMenuList.setOnItemClickListener(new OnItemClickListener() {
+        	public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+        	{
+        		switch(position)
+        		{
+        			case 0:
+        				startActivity(new Intent(MainActivity.this, EmergencyActivity.class));
+        				break;
+        			case 1:
+        				startActivity(new Intent(MainActivity.this, NewsActivity.class));
+        				break;
+        			case 2:
+        				startActivity(new Intent(MainActivity.this, PressReleaseActivity.class));
+        				break;
+        			case 3:
+        				startActivity(new Intent(MainActivity.this, DirectionsActivity.class));
+        				break;
+        		}
+        	}
+        });
 	}
 
 	@Override
@@ -84,32 +70,70 @@ public class MainActivity extends FragmentActivity implements
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
-	@Override
-	public boolean onNavigationItemSelected(int position, long id) {
-		// When the given dropdown item is selected, show its contents in the
-		// container view.
-		/*Fragment fragment = new DummySectionFragment();
-		Bundle args = new Bundle();
-		args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-		fragment.setArguments(args);
-		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.container, fragment).commit();*/
+	
+	public class MainMenuStruct
+	{
+		public int image;
+		public int title;
+		public int description;
 		
-		switch(position)
-		{
-			case 1:
-				HomeFragment home = new HomeFragment();
-				System.out.println("aaaaaaaaaaaaa");
-				getSupportFragmentManager().beginTransaction().replace(R.id.container, home).commit();
-				break;
-			default:
-				HomeFragment home2 = new HomeFragment();
-				getSupportFragmentManager().beginTransaction().replace(R.id.container, home2).commit();
-				break;
-				
-		}
-		
-		return true;
+		public MainMenuStruct(int img, int tit, int descrip)
+        {
+        	image = img;
+        	title = tit;
+        	description = descrip;
+        }
 	}
+	
+	//Custom list adapter to display menus
+	public class MainMenuListAdapter extends ArrayAdapter<MainMenuStruct>
+	{
+		Context context;
+		int layoutResource;
+		ArrayList<MainMenuStruct> menuData;
+		
+		public MainMenuListAdapter(Context c, int resource, ArrayList<MainMenuStruct> data)
+		{
+			super(c, resource, data);
+			context = c;
+			menuData = data;
+			layoutResource = resource;
+		}
+
+		@Override
+	    public View getView(int position, View convertView, ViewGroup parent)
+		{
+	        View row = convertView;
+	        MenuItemHolder holder;
+	        
+	        if(row == null)
+	        {
+	            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+	            row = inflater.inflate(layoutResource, null);
+	            
+	            holder = new MenuItemHolder();
+	            holder.itemImage = (ImageView) row.findViewById(R.id.itemImage);
+	            holder.itemTitle = (TextView) row.findViewById(R.id.itemTitle);
+	            holder.itemDescription = (TextView) row.findViewById(R.id.itemDescription);
+	            		
+	            row.setTag(holder);
+	        }
+	        else
+	        	holder = (MenuItemHolder)row.getTag();
+	        
+	        holder.itemImage.setImageResource(menuData.get(position).image);
+	        holder.itemTitle.setText(menuData.get(position).title);
+	        holder.itemDescription.setText(menuData.get(position).description);
+	     
+	        return row;
+	    }
+		
+		class MenuItemHolder
+	    {
+			ImageView itemImage;
+	        TextView itemTitle;
+	        TextView itemDescription;
+	    }
+	}
+
 }
