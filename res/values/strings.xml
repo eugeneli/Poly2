@@ -20,8 +20,8 @@
     <string name="campusmapDescription">A map of Metrotech with NYU-Poly buildings marked</string>
     <string name="searchDirectory">Search Directory</string>
     <string name="searchDirectoryDescription">Search the staff directory</string>
-    <string name="searchClasses">Search Classes</string>
-    <string name="searchClassesDescription">Search and set notifications for open classes</string>
+    <string name="searchClasses">Class Notifications</string>
+    <string name="searchClassesDescription">Set notifications for open classes</string>
     <string name="about">About this app</string>
     <string name="aboutDescription"></string>
     
@@ -42,4 +42,7 @@
 	
 	<!--  News -->
 	<string name="noNews">No news items found</string>
+	
+	<!-- Search Class -->
+	<string name="watchedClasses">Watched Classes</string>
 </resources>

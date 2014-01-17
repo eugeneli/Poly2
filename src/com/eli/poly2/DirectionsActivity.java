@@ -31,7 +31,7 @@ public class DirectionsActivity extends FragmentActivity
 	public static class MyPagerAdapter extends FragmentPagerAdapter
 	{
 		private static int NUM_ITEMS = 3;
-		private ArrayList<DriectionsFragmentStruct> directions = new ArrayList<DriectionsFragmentStruct>();
+		private ArrayList<DirectionsFragmentStruct> directions = new ArrayList<DirectionsFragmentStruct>();
 		
 		private String subwayDirections = "<html><head><link rel=\"stylesheet\" href=\"file:///android_asset/direc.css\" type=\"text/css\"></head><body>" +
 				"<p><a href=\"http://www.mta.info/nyct/service/aline.htm\" target=\"_blank\">A</a>&nbsp;<a href=\"http://www.mta.info/nyct/service/cline.htm\" target=\"_blank\">C</a>&nbsp;<a href=\"http://www.mta.info/nyct/service/fline.htm\" target=\"_blank\">F</a>&nbsp;train to <strong>Jay Street-Borough Hall</strong></p>"+
@@ -77,9 +77,9 @@ public class DirectionsActivity extends FragmentActivity
         {
             super(fragmentManager);
             
-            directions.add(new DriectionsFragmentStruct(DirectionsFragment.newInstance(subwayDirections), "Subway"));
-            directions.add(new DriectionsFragmentStruct(DirectionsFragment.newInstance(trainDirections), "Train"));
-            directions.add(new DriectionsFragmentStruct(DirectionsFragment.newInstance(carDirections), "Car"));
+            directions.add(new DirectionsFragmentStruct(DirectionsFragment.newInstance(subwayDirections), "Subway"));
+            directions.add(new DirectionsFragmentStruct(DirectionsFragment.newInstance(trainDirections), "Train"));
+            directions.add(new DirectionsFragmentStruct(DirectionsFragment.newInstance(carDirections), "Car"));
         }
         
         // Returns total number of pages
@@ -102,12 +102,12 @@ public class DirectionsActivity extends FragmentActivity
         	return directions.get(position).title;
         }
         
-        private class DriectionsFragmentStruct
+        private class DirectionsFragmentStruct
         {
         	public DirectionsFragment fragment;
         	public String title;
         	
-        	public DriectionsFragmentStruct(DirectionsFragment frag, String tit)
+        	public DirectionsFragmentStruct(DirectionsFragment frag, String tit)
         	{
         		fragment = frag;
         		title = tit;

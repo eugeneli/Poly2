@@ -17,7 +17,7 @@ public class WebDisplayActivity extends Activity
         Bundle b = getIntent().getExtras(); 
         String html = b.getString(HTML_DATA);
 
-        WebView engine = (WebView) findViewById(R.id.web_engine);  
-        engine.loadDataWithBaseURL("http://poly.edu", html, "text/html", "UTF-8", "");    
+        WebView webView = (WebView) findViewById(R.id.web_engine);
+        webView.loadDataWithBaseURL("http://poly.edu", html, "text/html", "UTF-8", "");    
     }
 }

@@ -11,9 +11,18 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int button_text=0x7f040009;
         public static final int card_shadow=0x7f040002;
         public static final int card_white=0x7f040001;
+        public static final int light_blue=0x7f040005;
+        public static final int light_gray=0x7f040004;
+        public static final int light_red=0x7f04000b;
+        public static final int lighter_blue=0x7f040006;
+        public static final int red=0x7f04000a;
         public static final int second_grey=0x7f040000;
+        public static final int see_thru_light_blue=0x7f040007;
+        public static final int see_thru_lighter_blue=0x7f040008;
+        public static final int yellow=0x7f040003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -29,29 +38,46 @@ public final class R {
         public static final int background=0x7f020000;
         public static final int background_pressed=0x7f020001;
         public static final int big_card=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int list_item_selector=0x7f020004;
+        public static final int button=0x7f020003;
+        public static final int button_border=0x7f020004;
+        public static final int button_pressed=0x7f020005;
+        public static final int button_unpressed=0x7f020006;
+        public static final int ic_action_search=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int list_item_selector=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000a;
-        public static final int itemDescription=0x7f090005;
-        public static final int itemImage=0x7f090003;
-        public static final int itemTitle=0x7f090004;
-        public static final int layout_root=0x7f090006;
-        public static final int menuList=0x7f090002;
-        public static final int pager_header=0x7f090001;
-        public static final int progress_bar=0x7f090008;
-        public static final int relativeLayout1=0x7f090007;
-        public static final int viewPager=0x7f090000;
-        public static final int web_engine=0x7f090009;
+        public static final int action_settings=0x7f090013;
+        public static final int add=0x7f090007;
+        public static final int courseNum=0x7f090006;
+        public static final int gmap=0x7f090000;
+        public static final int itemDescription=0x7f09000e;
+        public static final int itemImage=0x7f09000c;
+        public static final int itemTitle=0x7f09000d;
+        public static final int layout_root=0x7f09000f;
+        public static final int linearLayout1=0x7f090004;
+        public static final int menuList=0x7f090003;
+        public static final int pager_header=0x7f090002;
+        public static final int ping_search=0x7f09000b;
+        public static final int progress_bar=0x7f090011;
+        public static final int relativeLayout1=0x7f090010;
+        public static final int search_text=0x7f09000a;
+        public static final int subjects=0x7f090005;
+        public static final int textView1=0x7f090008;
+        public static final int viewPager=0x7f090001;
+        public static final int watchedList=0x7f090009;
+        public static final int web_engine=0x7f090012;
     }
     public static final class layout {
-        public static final int activity_directions=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int mainmenulist_row=0x7f030002;
-        public static final int menulist_row=0x7f030003;
-        public static final int webdatalist=0x7f030004;
-        public static final int webview=0x7f030005;
+        public static final int activity_campusmap=0x7f030000;
+        public static final int activity_directions=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_searchclass=0x7f030003;
+        public static final int dialog_search=0x7f030004;
+        public static final int mainmenulist_row=0x7f030005;
+        public static final int menulist_row=0x7f030006;
+        public static final int webdatalist=0x7f030007;
+        public static final int webview=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -94,6 +120,9 @@ public final class R {
         public static final int title_section1=0x7f060002;
         public static final int title_section2=0x7f060003;
         public static final int title_section3=0x7f060004;
+        /**  Search Class 
+         */
+        public static final int watchedClasses=0x7f060022;
         public static final int wellnessExchange=0x7f060017;
         public static final int wellnessExchangeDescrip=0x7f060018;
         public static final int wellnessExchangeNum=0x7f06001e;
@@ -125,5 +154,7 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int BlueButton=0x7f070002;
+        public static final int BlueButton_Border=0x7f070003;
     }
 }
