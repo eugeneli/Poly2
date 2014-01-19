@@ -1,4 +1,4 @@
-package com.eli.poly2;
+package com.lambdai.poly;
 
 import android.os.Bundle;
 

@@ -7,11 +7,12 @@
 	android:paddingLeft="@dimen/activity_horizontal_margin"
 	android:paddingRight="@dimen/activity_horizontal_margin"
 	android:paddingTop="@dimen/activity_vertical_margin"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	style="@style/PolyPage">
 
        <RelativeLayout
            android:layout_width="match_parent"
-           android:layout_height="100dp"
+           android:layout_height="115dp"
            android:background="@drawable/list_item_selector"
            android:orientation="vertical" >
 
@@ -25,7 +26,7 @@
                android:weightSum="2" >
 
                <Spinner
-                   android:id="@+id/subjects"
+                   android:id="@+id/subjectsSpinner"
                    android:layout_width="0dip"
                    android:layout_height="wrap_content"
                    android:layout_weight="1" />
@@ -36,22 +37,25 @@
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
                    android:ems="10"
-                   android:inputType="text" >
+                   android:inputType="text"
+                   android:hint="@string/classNumHint"
+                   android:maxLength="5">
 
                    <requestFocus />
                </EditText>
            </LinearLayout>
+           
 
-           <ImageButton
-               android:id="@+id/add"
+           <Button
+               android:id="@+id/addClass"
                style="@style/BlueButton.Border"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_alignParentBottom="true"
                android:layout_centerHorizontal="true"
-               android:layout_margin="4dp"
                android:contentDescription="@string/app_name"
                android:scaleType="fitCenter"
+               android:text="@string/watch"
                android:src="@drawable/ic_action_search" />
        </RelativeLayout>
 	
@@ -67,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/watchedClasses"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 	    
 	    <ListView
 	        android:id="@+id/watchedList"

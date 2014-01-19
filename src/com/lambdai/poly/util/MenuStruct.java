@@ -1,4 +1,4 @@
-package com.eli.poly2.util;
+package com.lambdai.poly.util;
 
 public class MenuStruct
 {

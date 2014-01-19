@@ -1,4 +1,4 @@
-package com.eli.poly2.util;
+package com.lambdai.poly.util;
 
 import java.util.ArrayList;
 
@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.eli.poly2.util.MenuStruct;
-import com.eli.poly2.R;
+import com.lambdai.poly.R;
+import com.lambdai.poly.util.MenuStruct;
 
 public class MenuListAdapter extends ArrayAdapter<MenuStruct>
 	{

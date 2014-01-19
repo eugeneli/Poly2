@@ -1,4 +1,4 @@
-package com.eli.poly2;
+package com.lambdai.poly;
 
 import java.util.ArrayList;
 
@@ -6,9 +6,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import com.eli.poly2.util.MenuListAdapter;
-import com.eli.poly2.util.MenuStruct;
-import com.eli.poly2.util.XMLfunctions;
+import com.lambdai.poly.util.MenuListAdapter;
+import com.lambdai.poly.util.MenuStruct;
+import com.lambdai.poly.util.XMLfunctions;
 
 import android.app.Activity;
 import android.content.Context;

@@ -13,4 +13,10 @@
     <color name="button_text">#ccffffff</color>
     <color name="red">#ff0000</color>
     <color name="light_red">#ff1919</color>
+    
+    <color name="lightPurple">#7608BF</color>
+    
+    <color name="nyupurple">#57068c</color>
+    <color name="polychangreen">#eeffed</color>
+    <color name="polygreen">#7dbe51</color>
 </resources>

@@ -1,6 +1,8 @@
-package com.eli.poly2;
+package com.lambdai.poly;
 
 import java.util.ArrayList;
+
+import com.lambdai.poly.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

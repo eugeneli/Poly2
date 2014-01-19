@@ -1,4 +1,4 @@
-package com.eli.poly2;
+package com.lambdai.poly;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,22 +6,22 @@ import java.util.ArrayList;
 import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
 
-import com.eli.poly2.util.SearchDialog;
-import com.eli.poly2.util.SearchDialog.OnSearchListener;
+import com.lambdai.poly.util.SearchDialog;
+import com.lambdai.poly.util.SearchDialog.OnSearchListener;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -36,23 +36,35 @@ public class MainActivity extends FragmentActivity
 	private MainMenuListAdapter menuListAdapter;
 	private Context ctx;
 	
+	private SharedPreferences prefs;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		//Set default preferences if they haven't been set
+		prefs = getSharedPreferences(SettingsActivity.APP_NAME, Context.MODE_PRIVATE);
+		if(!prefs.contains(SettingsActivity.NOTIF_KEY))
+			prefs.edit().putBoolean(SettingsActivity.NOTIF_KEY, true).commit();
+		if(!prefs.contains(SettingsActivity.SERVICE_KEY))
+			prefs.edit().putBoolean(SettingsActivity.SERVICE_KEY, true).commit();
+		if(!prefs.contains(SettingsActivity.INTERVAL_KEY))
+			prefs.edit().putInt(SettingsActivity.INTERVAL_KEY, SettingsActivity.twoHours).commit();
+			
+		
 		ctx = this;
 		mainMenuList = (ListView) findViewById(R.id.menuList);
 		
-		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.emergency, R.string.emergencyDescription));
-		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.news, R.string.newsDescription));
-		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.press, R.string.pressDescription));
-		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.directions, R.string.directionsDescription));
-		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.campusmap, R.string.campusmapDescription));
-		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.searchDirectory, R.string.searchDirectoryDescription));
-		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.searchClasses, R.string.searchClassesDescription));
-		menuItems.add(new MainMenuStruct(R.drawable.ic_launcher, R.string.about, R.string.aboutDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.support, R.string.emergency, R.string.emergencyDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.newspaper, R.string.news, R.string.newsDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.file, R.string.press, R.string.pressDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.airplane, R.string.directions, R.string.directionsDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.map, R.string.campusmap, R.string.campusmapDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.notebook, R.string.searchDirectory, R.string.searchDirectoryDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.bullhorn, R.string.searchClasses, R.string.searchClassesDescription));
+		menuItems.add(new MainMenuStruct(R.drawable.bubble, R.string.about, R.string.aboutDescription));
 		menuListAdapter = new MainMenuListAdapter(this, R.layout.mainmenulist_row, menuItems);
 		mainMenuList.setAdapter(menuListAdapter);
 		
@@ -105,7 +117,7 @@ public class MainActivity extends FragmentActivity
         		                    {
         		                        public void run()
         		                        {
-        		                       	 Intent intent = new Intent(MainActivity.this, WebDisplayActivity.class);  
+        		                       	 	Intent intent = new Intent(MainActivity.this, WebDisplayActivity.class);  
         		                            Bundle b = new Bundle(); 
         		                          
         		                            org.jsoup.nodes.Document doc = null;
@@ -139,6 +151,16 @@ public class MainActivity extends FragmentActivity
         			case 6:
         				startActivity(new Intent(MainActivity.this, SearchClassActivity.class));
         				break;
+        			case 7:
+        				Intent aboutIntent = new Intent(MainActivity.this, WebDisplayActivity.class);  
+                        Bundle bundle = new Bundle();
+                        
+                        bundle.putBoolean(WebDisplayActivity.LOAD_URL, true);
+                        bundle.putString(WebDisplayActivity.HTML_DATA, "file:///android_asset/aboutUs.html");
+
+                        aboutIntent.putExtras(bundle);
+                        startActivity(aboutIntent);
+        				break;
         		}
         	}
         });
@@ -148,6 +170,16 @@ public class MainActivity extends FragmentActivity
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if(item.getItemId() == R.id.action_settings)
+		{
+			startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+		}
 		return true;
 	}
 	

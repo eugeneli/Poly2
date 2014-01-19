@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Poly2</string>
+    <string name="app_name">NYU-Poly</string>
     <string name="action_settings">Settings</string>
     <string name="title_section1">Home</string>
     <string name="title_section2">Section 2</string>
@@ -45,4 +45,17 @@
 	
 	<!-- Search Class -->
 	<string name="watchedClasses">Watched Classes</string>
+	<string name="classNumHint">Course Number</string>
+	<string name="watch">Watch</string>
+	
+	<!--  Open Sections -->
+	<string name="fullname">Class:</string>
+	<string name="sectionNum">Section Number:</string>
+	<string name="section">Section:</string>
+	<string name="professor">Professor:</string>
+	
+	<!--  Settings -->
+	<string name="enableNotifications">Class notifications</string>
+	<string name="enableService">Automatic class checking</string>
+	<string name="serviceInterval">Checking interval</string>
 </resources>

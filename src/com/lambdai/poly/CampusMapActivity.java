@@ -1,11 +1,10 @@
-package com.eli.poly2;
+package com.lambdai.poly;
 
-import com.eli.poly2.util.GoogleMapsWrapper;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.lambdai.poly.util.GoogleMapsWrapper;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
 
 public class CampusMapActivity extends FragmentActivity
 {
@@ -33,12 +32,5 @@ public class CampusMapActivity extends FragmentActivity
 		map.addMarker(40.70517, -74.011537, "Manhattan Graduate Center");
 		map.setLocation(40.694190, -73.985817);
 		map.setZoom(17f);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
 	}
 }

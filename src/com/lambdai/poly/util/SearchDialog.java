@@ -1,6 +1,6 @@
-package com.eli.poly2.util;
+package com.lambdai.poly.util;
 
-import com.eli.poly2.R;
+import com.lambdai.poly.R;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -68,13 +68,16 @@ public class SearchDialog extends DialogFragment
 	        @Override
 	        public void afterTextChanged(Editable s)
 	        {
-	            if (s.charAt(s.length() - 1) == '\n')
-	            {
-	            	if (listener != null) {
-						listener.onSearch(input.getText().toString());
-					}
-					dismiss();
-	            }
+	        	if(s.length() - 1 >= 0)
+	        	{
+	        		if (s.charAt(s.length() - 1) == '\n')
+		            {
+		            	if (listener != null) {
+							listener.onSearch(input.getText().toString());
+						}
+						dismiss();
+		            }
+	        	}
 	        }
 	    });
 		

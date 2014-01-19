@@ -1,4 +1,4 @@
-package com.eli.poly2.util;
+package com.lambdai.poly.util;
 
 import java.io.IOException;
 import java.io.StringReader;
